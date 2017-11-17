@@ -1,0 +1,10 @@
+server:
+  port: 8888
+zuul:
+  routes:
+    users:
+      path: /users/**
+      url: http://localhost:8081/users/
+    comments:
+      path: /comments/**
+      url: http://localhost:8082/comments/
