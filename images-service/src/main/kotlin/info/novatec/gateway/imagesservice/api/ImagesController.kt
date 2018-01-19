@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class CommentsController {
+class ImagesController {
 
-    @GetMapping("/comments" )
+    @GetMapping("/images" )
     fun getComments(@RequestHeader(AUTHORIZATION) authorizationHeader: String): String {
-        return "Successfully called COMMENTS service with authorization header value [$authorizationHeader]."
+        return "Successfully called IMAGES service with authorization header value [$authorizationHeader]."
     }
 }

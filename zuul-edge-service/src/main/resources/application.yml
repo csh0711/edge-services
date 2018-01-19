@@ -8,3 +8,6 @@ zuul:
     comments:
       path: /comments/**
       url: http://localhost:8082/comments/
+    images:
+      path: /images/**
+      url: http://localhost:8083/images/

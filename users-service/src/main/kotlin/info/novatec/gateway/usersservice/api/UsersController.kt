@@ -10,6 +10,6 @@ class UsersController {
 
     @GetMapping("/users" )
     fun getUsers(@RequestHeader(AUTHORIZATION) authorizationHeader: String): String {
-        return "Successfully called users service with authorization header value [$authorizationHeader]."
+        return "Successfully called USERS service with authorization header value [$authorizationHeader]."
     }
 }
