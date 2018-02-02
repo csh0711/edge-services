@@ -5,9 +5,12 @@ zuul:
     users:
       path: /users/**
       url: http://localhost:8081/users/
+      # serviceId: Users-Service
     comments:
       path: /comments/**
       url: http://localhost:8082/comments/
+      # serviceId: Comments-Service
     images:
       path: /images/**
       url: http://localhost:8083/images/
+      # serviceId: Images-Service

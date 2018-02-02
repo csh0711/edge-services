@@ -1,4 +1,4 @@
-package info.novatec.gateway.commentsservice.api
+package info.novatec.gateway.imagesservice.api
 
 import org.springframework.http.HttpHeaders.AUTHORIZATION
 import org.springframework.web.bind.annotation.GetMapping
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class ImagesController {
 
     @GetMapping("/images" )
-    fun getComments(@RequestHeader(AUTHORIZATION) authorizationHeader: String): String {
+    fun getImages(@RequestHeader(AUTHORIZATION) authorizationHeader: String): String {
         return "Successfully called IMAGES service with authorization header value [$authorizationHeader]."
     }
 }

@@ -1,4 +1,4 @@
-package info.novatec.gateway.commentsservice
+package info.novatec.gateway.imagesservice
 
 import org.junit.Test
 import org.junit.runner.RunWith

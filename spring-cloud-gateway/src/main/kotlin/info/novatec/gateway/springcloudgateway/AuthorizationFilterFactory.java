@@ -2,20 +2,30 @@ package info.novatec.gateway.springcloudgateway;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.GatewayFilterFactory;
+import org.springframework.http.HttpCookie;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.tuple.Tuple;
 
-import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-
 public class AuthorizationFilterFactory implements GatewayFilterFactory {
+
     @Override
     public GatewayFilter apply(Tuple args) {
         return (exchange, chain) -> {
-            String token = exchange.getRequest().getCookies().get("my-token").get(0).getValue();
+            HttpCookie cookie = exchange.getRequest().getCookies().getFirst("customer-Id");
+            if (cookie == null || cookie.getValue().isEmpty()) {
+                ServerHttpResponse response = exchange.getResponse();
+                response.setStatusCode(HttpStatus.BAD_REQUEST);
+                response.setComplete();
+                return chain.filter(exchange.mutate().response(response).build());
+            }
             ServerHttpRequest request = exchange.getRequest().mutate()
-                    .header(AUTHORIZATION, token)
+                    .header(HttpHeaders.AUTHORIZATION, cookie.getValue())
                     .build();
             return chain.filter(exchange.mutate().request(request).build());
         };
     }
 }
+
