@@ -12,10 +12,8 @@ class AuthorizationFilterFactory : GatewayFilterFactory {
         return GatewayFilter { exchange, chain ->
             val cookie = exchange.request.cookies.getFirst("customer-Id")
             if (cookie?.value.isNullOrEmpty()) {
-                val response = exchange.response
-                response.statusCode = HttpStatus.BAD_REQUEST
-                response.setComplete()
-                chain.filter(exchange.mutate().response(response).build())
+                exchange.response.statusCode = HttpStatus.BAD_REQUEST
+                exchange.response.setComplete()
             } else {
                 val request = exchange.request
                         .mutate()
