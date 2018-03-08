@@ -1,6 +1,6 @@
 # Edge Services with Spring Cloud Netflix Zuul and Spring Cloud Gateway
 
-This repository provides a simple example to that demonstrates how to build API Gateways aka. Edge Services with Spring Cloud Netflix Zuul and Spring Cloud Gateway. 
+This repository provides a simple example that demonstrates how to build API Gateways aka. Edge Services with Spring Cloud Netflix Zuul and Spring Cloud Gateway. 
 As programming language Kotlin is used.
 
 ## Running the application locally
