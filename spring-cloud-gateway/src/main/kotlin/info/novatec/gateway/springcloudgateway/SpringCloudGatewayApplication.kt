@@ -27,17 +27,18 @@ class SpringCloudGatewayApplication {
                         filter(AuthorizationFilter())
                     }
                 }
-                route(id = "images") {
-                    path("/images")
-                    uri("http://localhost:8083/images")
-                    filters {
-                        filter(AuthorizationFilter())
-                    }
-                }
+                // The routing and filtering to '/images' is done via application.yml
+                //route(id = "images") {
+                //    path("/images")
+                //    uri("http://localhost:8083/images")
+                //    filters {
+                //        filter(AuthorizationFilter())
+                //    }
+                //}
             }
 
     @Bean
-    fun authorizationFilterFactory(): AuthorizationFilter {
+    fun authorizationFilter(): AuthorizationFilter {
         return AuthorizationFilter()
     }
 }
