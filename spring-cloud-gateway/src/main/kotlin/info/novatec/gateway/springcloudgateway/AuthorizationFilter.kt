@@ -8,7 +8,7 @@ import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
 /**
- * Filter that extracts the `customer-Id` cookie and adds it's value to the
+ * GatewayFilter that extracts the `customer-Id` cookie and adds its value to the
  * request's Authorization header.
  *
  * Note: this filter is used for the `/users` and `/comments` routes which are

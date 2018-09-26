@@ -8,11 +8,11 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 
 /**
- * Filter that extracts the `customer-Id` cookie and adds it's value to the
+ * GatewayFilter that extracts the `customer-Id` cookie and adds its value to the
  * request's Authorization header.
  *
  * Note: this filter is used for the `/images` route which is defined in
- * the application.yml.
+ * the `application.yml`.
  */
 @Component
 class AuthorizationFilterFactory : AbstractGatewayFilterFactory<Config>(Config::class.java) {
