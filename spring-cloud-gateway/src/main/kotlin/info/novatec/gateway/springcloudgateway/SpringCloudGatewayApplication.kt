@@ -37,10 +37,6 @@ class SpringCloudGatewayApplication {
                 //}
             }
 
-    @Bean
-    fun authorizationFilter(): AuthorizationFilter {
-        return AuthorizationFilter()
-    }
 }
 
 

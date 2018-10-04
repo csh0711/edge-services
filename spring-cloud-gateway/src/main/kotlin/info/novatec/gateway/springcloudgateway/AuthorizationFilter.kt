@@ -4,6 +4,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import org.springframework.stereotype.Component
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
@@ -14,6 +15,7 @@ import reactor.core.publisher.Mono
  * Note: this filter is used for the `/users` and `/comments` routes which are
  * defined in the [SpringCloudGatewayApplication].
  */
+@Component
 class AuthorizationFilter : GatewayFilter {
 
     override fun filter(exchange: ServerWebExchange, chain: GatewayFilterChain): Mono<Void> {
