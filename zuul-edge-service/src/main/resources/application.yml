@@ -14,3 +14,7 @@ zuul:
       path: /images/**
       url: http://localhost:8083/images/
       # serviceId: Images-Service
+  # Overwrite list of sensitive headers to allow 'Authorization' header to be sent to backend services
+  sensitive-headers:
+    - "Cookie"
+    - "Set-Cookie"
