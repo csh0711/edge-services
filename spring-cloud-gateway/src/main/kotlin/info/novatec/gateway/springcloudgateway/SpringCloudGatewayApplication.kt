@@ -11,20 +11,20 @@ import org.springframework.context.annotation.Bean
 @SpringBootApplication
 class SpringCloudGatewayApplication {
     @Bean
-    fun customRouteLocator(builder: RouteLocatorBuilder, authFilter: AuthorizationFilter): RouteLocator =
+    fun customRouteLocator(builder: RouteLocatorBuilder, authorizationFilter: AuthorizationFilter): RouteLocator =
             builder.routes {
                 route(id = "users") {
                     path("/users")
                     uri("http://localhost:8081/users")
                     filters {
-                        filter(AuthorizationFilter())
+                        filter(authorizationFilter)
                     }
                 }
                 route(id = "comments") {
                     path("/comments")
                     uri("http://localhost:8082/comments")
                     filters {
-                        filter(AuthorizationFilter())
+                        filter(authorizationFilter)
                     }
                 }
                 // The routing and filtering to '/images' is done via application.yml
@@ -32,7 +32,7 @@ class SpringCloudGatewayApplication {
                 //    path("/images")
                 //    uri("http://localhost:8083/images")
                 //    filters {
-                //        filter(AuthorizationFilter())
+                //        filter(authorizationFilter)
                 //    }
                 //}
             }
